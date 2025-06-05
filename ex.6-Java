@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+public class Exercicio6 {
+
+    public static int converterHora(int hora24, char[] periodo) {
+        if (hora24 == 0) {
+            periodo[0] = 'A';
+            return 12;
+        } else if (hora24 == 12) {
+            periodo[0] = 'P';
+            return 12;
+        } else if (hora24 > 12) {
+            periodo[0] = 'P';
+            return hora24 - 12;
+        } else {
+            periodo[0] = 'A';
+            return hora24;
+        }
+    }
+
+    public static void exibirHora(int hora, int minuto, char periodo) {
+        String periodoStr = (periodo == 'A') ? "A.M." : "P.M.";
+        System.out.printf("Hora convertida: %d:%02d %s%n", hora, minuto, periodoStr);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char continuar;
+
+        do {
+            System.out.print("Digite a hora (0 a 23): ");
+            int hora = sc.nextInt();
+
+            System.out.print("Digite os minutos (0 a 59): ");
+            int minuto = sc.nextInt();
+
+            char[] periodo = new char[1];
+            int horaConvertida = converterHora(hora, periodo);
+            exibirHora(horaConvertida, minuto, periodo[0]);
+
+            System.out.print("Deseja converter outro horário? (s/n): ");
+            continuar = sc.next().charAt(0);
+        } while (continuar == 's' || continuar == 'S');
+
+        sc.close();
+    }
+}
