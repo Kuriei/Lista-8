@@ -1,0 +1,12 @@
+public class Exercicio5 {
+    public static double somaImposto(double taxaImposto, double custo) {
+        return custo + (custo * taxaImposto / 100);
+    }
+
+    public static void main(String[] args) {
+        double custo = 100.0;
+        double taxa = 10.0; // 10%
+        double total = somaImposto(taxa, custo);
+        System.out.printf("Valor com imposto: %.2f%n", total);
+    }
+}
