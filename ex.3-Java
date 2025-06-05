@@ -1,0 +1,10 @@
+public class Exercicio3 {
+    public static int somarTres(int a, int b, int c) {
+        return a + b + c;
+    }
+
+    public static void main(String[] args) {
+        int resultado = somarTres(10, 20, 30);
+        System.out.println("Soma: " + resultado);
+    }
+}
